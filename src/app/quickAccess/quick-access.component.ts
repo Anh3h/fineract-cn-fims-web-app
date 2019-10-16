@@ -19,6 +19,53 @@
 import {Component} from '@angular/core';
 
 @Component({
-  templateUrl: './quick-access.component.html'
+  templateUrl: './quick-access.component.html',
+  styles: [`
+    mat-card-title.mat-card-title, p {
+      margin-bottom: 0px
+    }
+    .details {
+      padding: 8px;
+    }
+    .details strong {
+      font-size: 16px
+    }
+  `]
 })
-export class QuickAccessComponent {}
+export class QuickAccessComponent {
+
+  constructor() {}
+
+  public chartOptions = {
+    scaleShowVerticalLines: true,
+    responsive: true
+  };
+  public chartLegend = false;
+  public chartOne = {
+    color: [{
+      backgroundColor: ['rgba(255, 255, 255, 0)'],
+      borderColor: ['rgba(54, 162, 235, 1)'],
+      pointBackgroundColor: 'rgba(54, 162, 235, 1)',
+      pointBorderColor: 'rgba(54, 162, 235, 1)',
+    }],
+    type: 'line',
+    labels: ['M', 'T', 'W', 'Th', 'F', 'Sa', 'Su'],
+    datasets: [
+        {data: [65, 59, 80, 81, 56, 55, 40]}
+      ]
+  };
+  public chartTwo = {
+    color: [{
+      backgroundColor: [
+        '#20c997', '#20c997', '#20c997', '#20c997', '#20c997', '#20c997',
+      ],
+      borderColor: ['#20c997', '#20c997', '#20c997', '#20c997', '#20c997', '#20c997']
+    }],
+    type: 'bar',
+    labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+    datasets: [
+        {data: [12, 19, 3, 5, 2, 3]}
+      ]
+  };
+
+}

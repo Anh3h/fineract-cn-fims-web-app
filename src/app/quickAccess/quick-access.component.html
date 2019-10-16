@@ -22,97 +22,77 @@
 <div class="mat-content" flex mat-scroll-y>
   <div layout="column" layout-gt-sm="row" class="inset">
     <div flex-gt-sm="50" *hasPermission="{ id: 'office_offices', accessLevel: 'READ'}">
-      <mat-card>
-        <mat-card-title translate>Offices</mat-card-title>
-        <mat-card-subtitle translate>Create and edit your offices here.</mat-card-subtitle>
-        <mat-card-actions>
-          <a mat-button color="accent" class="text-upper" [routerLink]="['/offices']">
-            <span translate>View headquarter office</span>
-          </a>
-        </mat-card-actions>
-      </mat-card>
-    </div>
-    <div flex-gt-sm="50" *hasPermission="{ id: 'office_employees', accessLevel: 'READ'}">
-      <mat-card>
-        <mat-card-title translate>Employees</mat-card-title>
-        <mat-card-subtitle translate>Create and edit your employees and assign them to offices.</mat-card-subtitle>
-        <mat-card-actions>
-          <a mat-button color="accent" class="text-upper" [routerLink]="['/employees']">
-            <span translate>View employees</span>
-          </a>
-          <a mat-button color="accent" class="text-upper" [routerLink]="['/employees/create']" *hasPermission="{ id: 'office_employees', accessLevel: 'CHANGE'}">
-            <span translate>Create new employee</span>
-          </a>
-        </mat-card-actions>
-      </mat-card>
-    </div>
-  </div>
-  <div layout="column" layout-gt-sm="row" class="inset">
-    <div flex-gt-sm="40" *hasPermission="{ id: 'customer_customers', accessLevel: 'READ'}">
-      <mat-card>
-        <mat-card-title translate>Member</mat-card-title>
-        <mat-card-subtitle translate>Create/edit members for your offices.</mat-card-subtitle>
-        <mat-card-actions>
-          <a mat-button color="accent" class="text-upper" [routerLink]="['/customers']">
-            <span translate>View member </span>
-          </a>
-          <a mat-button color="accent" class="text-upper" [routerLink]="['/customers/create']" *hasPermission="{ id: 'customer_customers', accessLevel: 'CHANGE'}">
-            <span translate>Create new member </span>
-          </a>
-        </mat-card-actions>
-      </mat-card>
-    </div>
-  </div>
-
-  <div layout="column" layout-gt-sm="row" class="inset">
-    <div flex-gt-sm="40" *hasPermission="{ id: 'accounting_ledgers', accessLevel: 'READ'}">
-      <mat-card>
-        <mat-card-title translate>Accounting</mat-card-title>
-        <mat-card-subtitle translate>Create/edit ledgers and accounts for your General Ledger.</mat-card-subtitle>
-        <mat-card-actions>
-          <a mat-button color="accent" class="text-upper" [routerLink]="['/accounting']">
-            <span translate>View General Ledger</span>
-          </a>
-          <a mat-button color="accent" class="text-upper" [routerLink]="['/accounting/create']" *hasPermission="{ id: 'accounting_ledgers', accessLevel: 'CHANGE'}">
-            <span translate>Create new ledger</span>
-          </a>
-        </mat-card-actions>
-      </mat-card>
-    </div>
-  </div>
-<!--
-  <div layout="column" layout-gt-sm="row" class="inset">
-      <div flex-gt-sm="40">
-        <mat-card>
-          <mat-card-title translate>Group</mat-card-title>
-          <mat-card-subtitle translate>Create/edit groups.</mat-card-subtitle>
-          <mat-card-actions>
-            <a mat-button color="accent" class="text-upper" [routerLink]="['/groups']">
-              <span translate>View Group </span>
-            </a>
-            <a mat-button color="accent" class="text-upper" [routerLink]="['/groups/create']" *hasPermission="{ id: 'group_groups', accessLevel: 'CHANGE'}">
-              <span translate>Create new group </span>
-            </a>
-          </mat-card-actions>
-        </mat-card>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+            <div class="row">
+                <mat-card>
+                  <mat-card-title translate>
+                    <p>Offices</p>
+                  </mat-card-title>
+                  <mat-card-content>
+                    <canvas baseChart
+                      [datasets]="chartOne.datasets"
+                      [labels]="chartOne.labels"
+                      [options]="chartOptions"
+                      [legend]="chartLegend"
+                      [chartType]="chartOne.type"
+                      [colors]="chartOne.color">
+                    </canvas>
+                  </mat-card-content>
+                </mat-card>
+            </div>
+            <div class="row">
+              <mat-card>
+                <mat-card-title translate>
+                  <p>Employees</p>
+                </mat-card-title>
+                <mat-card-content>
+                  <canvas baseChart
+                    [datasets]="chartOne.datasets"
+                    [labels]="chartOne.labels"
+                    [options]="chartOptions"
+                    [legend]="chartLegend"
+                    [chartType]="chartOne.type"
+                    [colors]="chartOne.color">
+                  </canvas>
+                </mat-card-content>
+              </mat-card>
+            </div>
+          </div>
+          <div class="col-md-8">
+              <mat-card>
+                  <mat-card-title translate>
+                    <p>Accounting</p>
+                  </mat-card-title>
+                  <mat-card-content>
+                    <mat-divider></mat-divider>
+                    <div class="row details">
+                      <div class="col-md-6">
+                        <p>Annual Taxes EMS</p>
+                        <p><strong>$400,000</strong></p>
+                      </div>
+                      <div class="col-md-6">
+                        <p>Financial Review Date</p>
+                        <p><strong>July 24,2019</strong></p>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <canvas baseChart
+                        [datasets]="chartTwo.datasets"
+                        [labels]="chartTwo.labels"
+                        [options]="chartOptions"
+                        [legend]="chartLegend"
+                        [chartType]="chartTwo.type"
+                        [colors]="chartTwo.color">
+                      </canvas>
+                    </div>
+                  </mat-card-content>
+                </mat-card>
+            </div>
+        </div>
       </div>
-    </div>
-
-  -->
-  <div layout="column" layout-gt-sm="row" class="inset">
-    <div flex-gt-sm="40" *hasPermission="{ id: 'identity_roles', accessLevel: 'READ'}">
-      <mat-card>
-        <mat-card-title translate>Roles</mat-card-title>
-        <mat-card-subtitle translate>Create and edit roles to manage access levels within fims.</mat-card-subtitle>
-        <mat-card-actions>
-          <a mat-button color="accent" class="text-upper" [routerLink]="['/roles']">
-            <span translate>View roles</span>
-          </a>
-          <a mat-button color="accent" class="text-upper" [routerLink]="['/roles/create']" *hasPermission="{ id: 'identity_roles', accessLevel: 'CHANGE'}">
-            <span translate>Create new role</span>
-          </a>
-        </mat-card-actions>
-      </mat-card>
+      
     </div>
   </div>
 </div>

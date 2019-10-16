@@ -18,6 +18,7 @@
  */
 
 import {NgModule} from '@angular/core';
+import {ChartsModule} from 'ng4-charts/ng4-charts';
 import {RouterModule} from '@angular/router';
 import {MainComponent} from './main.component';
 import {MainRoutes, mainRoutingProviders} from './main.routing';
@@ -45,6 +46,7 @@ import {CovalentLayoutModule, CovalentMediaModule} from '@covalent/core';
 @NgModule({
   imports: [
     RouterModule.forChild(MainRoutes),
+    ChartsModule,
     FimsSharedModule,
     TranslateModule,
     CommonModule,
