@@ -25,7 +25,7 @@ import {Component} from '@angular/core';
       margin-bottom: 0px
     }
     .details {
-      padding: 8px;
+      padding: 6px;
     }
     .details strong {
       font-size: 16px

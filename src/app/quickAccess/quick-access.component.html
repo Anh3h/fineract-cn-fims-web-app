@@ -20,79 +20,78 @@
 </mat-toolbar>
 
 <div class="mat-content" flex mat-scroll-y>
-  <div layout="column" layout-gt-sm="row" class="inset">
-    <div flex-gt-sm="50" *hasPermission="{ id: 'office_offices', accessLevel: 'READ'}">
-      <div class="container">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
         <div class="row">
-          <div class="col-md-4">
-            <div class="row">
-                <mat-card>
-                  <mat-card-title translate>
-                    <p>Offices</p>
-                  </mat-card-title>
-                  <mat-card-content>
-                    <canvas baseChart
-                      [datasets]="chartOne.datasets"
-                      [labels]="chartOne.labels"
-                      [options]="chartOptions"
-                      [legend]="chartLegend"
-                      [chartType]="chartOne.type"
-                      [colors]="chartOne.color">
-                    </canvas>
-                  </mat-card-content>
-                </mat-card>
-            </div>
-            <div class="row">
-              <mat-card>
-                <mat-card-title translate>
-                  <p>Employees</p>
-                </mat-card-title>
-                <mat-card-content>
-                  <canvas baseChart
-                    [datasets]="chartOne.datasets"
-                    [labels]="chartOne.labels"
-                    [options]="chartOptions"
-                    [legend]="chartLegend"
-                    [chartType]="chartOne.type"
-                    [colors]="chartOne.color">
-                  </canvas>
-                </mat-card-content>
-              </mat-card>
-            </div>
+          <div class="col-md-12">
+            <mat-card>
+              <mat-card-title translate>
+                <p>Offices</p>
+              </mat-card-title>
+              <mat-card-content>
+                <canvas baseChart
+                  [datasets]="chartOne.datasets"
+                  [labels]="chartOne.labels"
+                  [options]="chartOptions"
+                  [legend]="chartLegend"
+                  [chartType]="chartOne.type"
+                  [colors]="chartOne.color">
+                </canvas>
+              </mat-card-content>
+            </mat-card>
           </div>
-          <div class="col-md-8">
-              <mat-card>
-                  <mat-card-title translate>
-                    <p>Accounting</p>
-                  </mat-card-title>
-                  <mat-card-content>
-                    <mat-divider></mat-divider>
-                    <div class="row details">
-                      <div class="col-md-6">
-                        <p>Annual Taxes EMS</p>
-                        <p><strong>$400,000</strong></p>
-                      </div>
-                      <div class="col-md-6">
-                        <p>Financial Review Date</p>
-                        <p><strong>July 24,2019</strong></p>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <canvas baseChart
-                        [datasets]="chartTwo.datasets"
-                        [labels]="chartTwo.labels"
-                        [options]="chartOptions"
-                        [legend]="chartLegend"
-                        [chartType]="chartTwo.type"
-                        [colors]="chartTwo.color">
-                      </canvas>
-                    </div>
-                  </mat-card-content>
-                </mat-card>
-            </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <mat-card>
+              <mat-card-title translate>
+                <p>Employees</p>
+              </mat-card-title>
+              <mat-card-content>
+                <canvas baseChart
+                  [datasets]="chartOne.datasets"
+                  [labels]="chartOne.labels"
+                  [options]="chartOptions"
+                  [legend]="chartLegend"
+                  [chartType]="chartOne.type"
+                  [colors]="chartOne.color">
+                </canvas>
+              </mat-card-content>
+            </mat-card>
+          </div>
         </div>
       </div>
-      
+      <div class="col-md-8">
+          <mat-card>
+              <mat-card-title translate>
+                <p>Accounting</p>
+              </mat-card-title>
+              <mat-card-content>
+                <mat-divider></mat-divider>
+                <div class="row details">
+                  <div class="col-md-6">
+                    <p>Annual Taxes EMS</p>
+                    <p><strong>$400,000</strong></p>
+                  </div>
+                  <div class="col-md-6">
+                    <p>Financial Review Date</p>
+                    <p><strong>July 24,2019</strong></p>
+                  </div>
+                </div>
+                <div class="row">
+                  <canvas baseChart
+                    [datasets]="chartTwo.datasets"
+                    [labels]="chartTwo.labels"
+                    [options]="chartOptions"
+                    [legend]="chartLegend"
+                    [chartType]="chartTwo.type"
+                    [colors]="chartTwo.color">
+                  </canvas>
+                </div>
+              </mat-card-content>
+            </mat-card>
+        </div>
     </div>
   </div>
 </div>
