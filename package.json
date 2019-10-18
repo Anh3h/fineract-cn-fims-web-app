@@ -67,6 +67,7 @@
     "zone.js": "0.8.17"
   },
   "devDependencies": {
+    "@angular-devkit/core": "^8.3.12",
     "@angular/cli": "1.4.7",
     "@angular/compiler-cli": "4.4.5",
     "@types/hammerjs": "2.0.30",

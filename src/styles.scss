@@ -18,7 +18,12 @@
  */
  @import '~bootstrap/dist/css/bootstrap.min.css';
  
-// Custom style for loading elements without height
+body {
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+ // Custom style for loading elements without height
 .will-load {
   min-height: 80px;
 }
