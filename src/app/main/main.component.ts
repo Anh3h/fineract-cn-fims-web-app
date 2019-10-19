@@ -50,80 +50,109 @@ export class MainComponent implements OnInit, OnDestroy, AfterViewInit {
   @ViewChild(MatSidenav) sidenav: MatSidenav;
 
   menuItems: MenuItem[] = [
-    { title: 'Quick access', icon: 'dashboard', routerLink: '/quickAccess' },
+    { title: 'DASHBOARD', icon: 'dashboard', routerLink: '/quickAccess' },
     {
-      title: 'Offices',
+      title: 'BRANCH',
       description: 'Manage offices',
       icon: 'store',
       routerLink: '/offices',
       permission: { id: 'office_offices', accessLevel: 'READ' }
     },
     {
-      title: 'Roles/Permissions',
-      description: 'Manage roles and permissions',
-      icon: 'https',
-      routerLink: '/roles',
-      permission: { id: 'identity_roles', accessLevel: 'READ' }
-    },
-    {
-      title: 'Employees',
-      description: 'Manage employees',
-      icon: 'group',
-      routerLink: '/employees',
-      permission: { id: 'office_employees', accessLevel: 'READ' }
-    },
-    {
-      title: 'Accounting',
-      description: 'Manage ledger accounts',
-      icon: 'receipt',
-      routerLink: '/accounting',
-      permission: { id: 'accounting_ledgers', accessLevel: 'READ' }
-    },
-
-
-    {
-      title: 'Groups',
-      description: 'Manage groups',
-      icon: 'group',
-      routerLink: '/groups',
-      permission: { id: 'group_groups', accessLevel: 'READ' }
-    },
-
-    {
-      title: 'Member',
-      description: 'Manage members',
-      icon: 'face',
-      routerLink: '/customers',
-      permission: { id: 'customer_customers', accessLevel: 'READ' }
-    },
-    {
-      title: 'Loan products',
-      description: 'Manage loan products',
-      icon: 'credit_card',
-      routerLink: '/loans',
-      permission: { id: 'portfolio_products', accessLevel: 'READ' }
-    },
-    {
-      title: 'Deposit',
+      title: 'ACCOUNT MANAGEMENT',
       description: 'Account management',
       icon: 'attach_money',
       routerLink: '/deposits',
       permission: { id: 'deposit_definitions', accessLevel: 'READ' }
     },
+    //TODO
     {
-      title: 'Teller',
+      title: 'CARD ACCOUNT',
+      description: 'Manage ledger accounts',
+      icon: 'receipt',
+      routerLink: '/accounting',
+      permission: { id: 'accounting_ledgers', accessLevel: 'READ' }
+    },
+    {
+      title: 'TELLER MANAGEMENT',
       description: 'Teller management',
       icon: 'person',
       routerLink: '/teller',
       permission: { id: 'teller_operations', accessLevel: 'READ' }
     },
     {
-      title: 'Reports',
+      title: 'LOAN MANAGEMENT',
+      description: 'Manage loan products',
+      icon: 'credit_card',
+      routerLink: '/loans',
+      permission: { id: 'portfolio_products', accessLevel: 'READ' }
+    },
+    {
+      title: 'CUSTOMERS',
+      description: 'Manage members',
+      icon: 'face',
+      routerLink: '/customers',
+      permission: { id: 'customer_customers', accessLevel: 'READ' }
+    },
+    //TODO
+    {
+      title: 'FRAUD MONITORING',
+      description: 'Manage members',
+      icon: 'face',
+      routerLink: '/customers',
+      permission: { id: 'customer_customers', accessLevel: 'READ' }
+    },
+    {
+      title: 'ACCOUNTING',
+      description: 'Manage ledger accounts',
+      icon: 'receipt',
+      routerLink: '/accounting',
+      permission: { id: 'accounting_ledgers', accessLevel: 'READ' }
+    },
+    //TODO
+    {
+      title: 'NEWS',
+      description: 'Manage ledger accounts',
+      icon: 'receipt',
+      routerLink: '/accounting',
+      permission: { id: 'accounting_ledgers', accessLevel: 'READ' }
+    },
+    {
+      title: 'REPORTS',
       description: 'View reports',
       icon: 'show_chart',
       routerLink: '/reports',
       permission: { id: 'reporting_management', accessLevel: 'READ' }
     },
+
+    {
+      title: 'SETTINGS',
+      description: 'Manage roles and permissions',
+      icon: 'https',
+      routerLink: '/roles',
+      permission: { id: 'identity_roles', accessLevel: 'READ' }
+    },
+    // {
+    //   title: 'Employees',
+    //   description: 'Manage employees',
+    //   icon: 'group',
+    //   routerLink: '/employees',
+    //   permission: { id: 'office_employees', accessLevel: 'READ' }
+    // },
+    // {
+    //   title: 'Groups',
+    //   description: 'Manage groups',
+    //   icon: 'group',
+    //   routerLink: '/groups',
+    //   permission: { id: 'group_groups', accessLevel: 'READ' }
+    // },
+    // {
+    //   title: 'Deposit',
+    //   description: 'Account management',
+    //   icon: 'attach_money',
+    //   routerLink: '/deposits',
+    //   permission: { id: 'deposit_definitions', accessLevel: 'READ' }
+    // },
   ];
 
   isLoading$: Observable<boolean>;

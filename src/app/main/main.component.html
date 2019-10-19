@@ -17,11 +17,10 @@
 
 <div layout="column" layout-fill>
   <mat-progress-bar *ngIf="isLoading$ | async" mode="indeterminate"></mat-progress-bar>
-  <mat-toolbar color="primary" class="mat-whiteframe-z1">
-    <button mat-icon-button (click)="toggleSideNav()">
-      <mat-icon>menu</mat-icon>
-    </button>
-    <span flex></span>
+  <mat-toolbar>
+    <a href="/" routerlink="/">
+      <img src="../../assets/images/moneyvault-logo.png" alt="Logo" />
+    </a>
     <mat-menu #menu="matMenu" x-position="before">
       <button mat-menu-item [disabled]="true">
         <mat-icon>account_circle</mat-icon>
@@ -45,27 +44,18 @@
   <mat-sidenav-container>
     <mat-sidenav
       [mode]="'side'"
-      [opened]="isOpened$ | async" >
-      <mat-toolbar>
-        <div layout="column">
-          <span layout="row" layout-align="start center">
-            <span class="mat-subhead" matTooltip="{{ 'Tenant' | translate }}" matTooltipPosition="right">{{tenant$ | async}}</span>
-          </span>
-        </div>
-      </mat-toolbar>
+      [opened]="isOpened$ | async">
       <mat-nav-list>
         <ng-container *ngFor="let menuItem of menuItems; let i = index">
           <a mat-list-item [routerLink]="[menuItem.routerLink]" routerLinkActive="active" *hasPermission="menuItem.permission">
-            <mat-icon matListAvatar>{{menuItem.icon}}</mat-icon>
             <h3 matLine>{{menuItem.title | translate}}</h3>
-            <p matLine>{{menuItem.description | translate}}</p>
           </a>
-          <mat-divider *ngIf="i === 0"></mat-divider>
+          <mat-divider *hasPermission="menuItem.permission"></mat-divider>
         </ng-container>
       </mat-nav-list>
     </mat-sidenav>
     <!-- Main content -->
-    <div layout-fill>
+    <div layout-fill class="content-container">
       <router-outlet></router-outlet>
     </div>
   </mat-sidenav-container>
