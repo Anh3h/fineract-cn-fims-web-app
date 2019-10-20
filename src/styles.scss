@@ -41,3 +41,9 @@ a[md-icon-button] {
 td-steps > div:last-child > td-step-header {
   pointer-events: none;
 }
+
+//Prevent bootstrap default blue outline arround buttons
+button:focus, button:active, input:focus {
+  outline: none !important;
+  box-shadow: none;
+}

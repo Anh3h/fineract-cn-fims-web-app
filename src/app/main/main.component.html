@@ -44,7 +44,7 @@
   <mat-sidenav-container>
     <mat-sidenav
       [mode]="'side'"
-      [opened]="isOpened$ | async">
+      [opened]="true">
       <mat-nav-list>
         <ng-container *ngFor="let menuItem of menuItems; let i = index">
           <a mat-list-item [routerLink]="[menuItem.routerLink]" routerLinkActive="active" *hasPermission="menuItem.permission">
