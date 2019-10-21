@@ -39,6 +39,7 @@ import {FormContinueActionComponent} from './forms/form-continue-action.componen
 import {FormFinalActionComponent} from './forms/form-final-action.component';
 import {AddressFormComponent} from './address/address.component';
 import {PortraitComponent} from './portrait/portrait.component';
+import {AccountCardComponent} from './account-card/account-card.component';
 import {CommonModule} from '@angular/common';
 import {
   MatAutocompleteModule,
@@ -122,7 +123,8 @@ import {NumberGroupInputComponent} from './number-group-input/number-group-input
     DisplayFimsDate,
     DisplayFimsNumber,
     DisplayFimsFinancialNumber,
-    NumberGroupInputComponent
+    NumberGroupInputComponent,
+    AccountCardComponent
   ],
   exports: [
     LayoutCardOverComponent,
@@ -154,7 +156,8 @@ import {NumberGroupInputComponent} from './number-group-input/number-group-input
     DisplayFimsDate,
     DisplayFimsNumber,
     DisplayFimsFinancialNumber,
-    NumberGroupInputComponent
+    NumberGroupInputComponent,
+    AccountCardComponent
   ],
   entryComponents: [
     ImageComponent

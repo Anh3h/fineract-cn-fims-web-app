@@ -19,75 +19,132 @@
   <div class="container">
     <div class="row">
       <div class="col-md-4">
-        <div class="row">
-          <div class="col-md-12">
-            <mat-card>
-              <mat-card-title translate>
-                <p>Offices</p>
-              </mat-card-title>
-              <mat-card-content>
-                <canvas baseChart
-                  [datasets]="chartOne.datasets"
-                  [labels]="chartOne.labels"
-                  [options]="chartOptions"
-                  [legend]="chartLegend"
-                  [chartType]="chartOne.type"
-                  [colors]="chartOne.color">
-                </canvas>
-              </mat-card-content>
-            </mat-card>
+          <mv-account-card [cardDetail]="firstCard"></mv-account-card>
+      </div>
+      <div class="col-md-4">
+        <mv-account-card [cardDetail]="secondCard"></mv-account-card>
+      </div>
+      <div class="col-md-4">
+        <mv-account-card [cardDetail]="thirdCard"></mv-account-card>
+      </div>
+    </div>
+    <div class="row mt-3">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header">
+            <span>Last Week Summary</span>
           </div>
-        </div>
-        <div class="row">
-          <div class="col-md-12">
-            <mat-card>
-              <mat-card-title translate>
-                <p>Employees</p>
-              </mat-card-title>
-              <mat-card-content>
-                <canvas baseChart
-                  [datasets]="chartOne.datasets"
-                  [labels]="chartOne.labels"
-                  [options]="chartOptions"
-                  [legend]="chartLegend"
-                  [chartType]="chartOne.type"
-                  [colors]="chartOne.color">
-                </canvas>
-              </mat-card-content>
-            </mat-card>
+          <div class="card-body">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">Channels</th>
+                  <th scope="col">Transaction Value in Last Complete Week</th>
+                  <th scope="col">Average Transaction Value of Previous Weeks</th>
+                  <th scope="col">Value Difference</th>
+                  <th scope="col">Transaction Value in Last Complete Week</th>
+                  <th scope="col">Average Transaction Value of Previous Weeks</th>
+                  <th scope="col">Value Difference</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Online</td>
+                  <td class="text-danger">8,460M</td>
+                  <td class="text-danger">19,760M</td>
+                  <td class="text-danger">-56,99%</td>
+                  <td class="text-danger">67,181</td>
+                  <td class="text-danger">131,564</td>
+                  <td class="text-danger">-48,94%</td>
+                </tr>
+                <tr>
+                  <td>Online</td>
+                  <td class="text-success">340M</td>
+                  <td class="text-success">3050M</td>
+                  <td class="text-success">11,48%</td>
+                  <td class="text-success">88,918</td>
+                  <td class="text-success">74,678</td>
+                  <td class="text-success">19,07%</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
-      <div class="col-md-8">
-          <mat-card>
-              <mat-card-title translate>
-                <p>Accounting</p>
-              </mat-card-title>
-              <mat-card-content>
-                <mat-divider></mat-divider>
-                <div class="row details">
-                  <div class="col-md-6">
-                    <p>Annual Taxes EMS</p>
-                    <p><strong>$400,000</strong></p>
-                  </div>
-                  <div class="col-md-6">
-                    <p>Financial Review Date</p>
-                    <p><strong>July 24,2019</strong></p>
-                  </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6 mt-3">
+        <div class="row">
+          <div class="col-md-8">
+            <div class="form-group row">
+              <label for="from" class="col-md-2 col-form-label">From</label>
+              <div class="col-md-10 input-group">
+                <input type="date" class="form-control" ngbDatepicker #d="ngbDatepicker" name="from" id="from" placeholder="dd/MM/yyyy"> 
+                <div class="input-group-append">
+                    <button class="btn btn-outline-primary calendar" (click)="d.toggle()" type="button"></button>
                 </div>
-                <div class="row">
-                  <canvas baseChart
-                    [datasets]="chartTwo.datasets"
-                    [labels]="chartTwo.labels"
-                    [options]="chartOptions"
-                    [legend]="chartLegend"
-                    [chartType]="chartTwo.type"
-                    [colors]="chartTwo.color">
-                  </canvas>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="to" class="col-md-2 col-form-label">To</label>
+              <div class="col-md-10 input-group">
+                <input type="date" class="form-control" ngbDatepicker #d="ngbDatepicker" name="to" id="to" placeholder="dd/MM/yyyy"> 
+                <div class="input-group-append">
+                    <button class="btn btn-outline-primary calendar" (click)="d.toggle()" type="button"></button>
                 </div>
-              </mat-card-content>
-            </mat-card>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label for="channels">Channels</label>
+              <select id="channels" class="form-control">
+                <option selected>All channels</option>
+                <option>Mobile</option>
+                <option>Online</option>
+              </select>
+            </div>
+          </div>
         </div>
+      </div>
+      <div class="col-md-6 mt-3">
+        <div class="row">
+          <div class="col-md-8">
+            <div class="card">
+              <div class="card-header">
+                <span>Daily Average</span>
+              </div>
+              <div class="card-body">
+                <table class="table">
+                  <tr>
+                    <td>Transaction Volume</td>
+                    <td>2,087,918</td>
+                  </tr>
+                  <tr>
+                    <td>Transaction Value</td>
+                    <td>2,047,583.29</td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card">
+              <div class="card-header">
+                <span>Success Rate</span>
+              </div>
+              <div class="card-body">
+                <table class="table">
+                  <tr>
+                    <td>Success Percentage</td>
+                    <td>89.72%</td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

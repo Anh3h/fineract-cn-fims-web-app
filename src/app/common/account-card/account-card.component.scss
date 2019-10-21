@@ -1,0 +1,35 @@
+.card {
+    margin-top: 5px;
+    color: #646c9a;
+
+    .card-header p{
+        margin-bottom: 0px;
+    }
+    .card-body {
+        .media h2 {
+            font-size: 60px;
+        }
+        .media-body h4 {
+            margin-bottom: 0px;
+            margin-top: 14px;
+        }
+        .media h3 {
+            font-size: 35px;
+            margin-bottom: 0px;
+        }
+        .media-body {
+            h5 {
+                margin-bottom: 0px;
+                margin-top: 2px;
+            }
+            span {
+                color: silver;
+            }
+        }
+    }
+
+    .card-header, .card-footer {
+        background-color: transparent;
+        border: none;
+    }
+}

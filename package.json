@@ -46,6 +46,7 @@
     "@angular/platform-server": "4.4.5",
     "@angular/router": "4.4.5",
     "@covalent/core": "1.0.0-beta.8-1",
+    "@ng-bootstrap/ng-bootstrap": "^1.0.0-beta.6",
     "@ngrx/core": "1.2.0",
     "@ngrx/effects": "2.0.5",
     "@ngrx/store": "2.2.2",

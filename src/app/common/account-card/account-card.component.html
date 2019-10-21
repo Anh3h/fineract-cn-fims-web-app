@@ -1,0 +1,35 @@
+<div class="card">
+  <div class="card-header">
+    <p><strong>{{ cardDetail.header }}</strong></p>
+    <small *ngIf="cardDetail.description">{{ cardDetail.description }}</small>
+    <mat-icon class="float-right">settings</mat-icon>
+  </div>
+  <div class="card-body">
+    <ng-container *ngFor="let subHeader of cardDetail.subHeaders; let i = index">
+      <div class="media d-inline-flex mr-2" [class.d-inline-flex]="cardDetail.subHeaders.length > 1" [class.mr-2]="i == 0">
+        <h2 class="mr-2" [class.text-success]="subHeader.color == 'success'" [class.text-primary]="subHeader.color == 'primary'" [class.text-danger]="subHeader.color == 'danger'">{{ subHeader.quantity }}</h2>
+        <div class="media-body" [class.text-danger]="subHeader.color == 'danger'">
+          <h4>{{ subHeader.context }}</h4>
+          <span [class.text-danger]="subHeader.color == 'danger'" [class.text-primary]="subHeader.color == 'primary'" [class.text-success]="subHeader.color == 'success'">{{ subHeader.time }}</span>
+        </div>
+      </div>
+    </ng-container>
+    <ul class="list-group group-horizontal-xl">
+      <ng-container *ngFor="let item of cardDetail.listBody">
+        <li class="list-group-item flex-fill">
+          <div class="media">
+            <h3 class=" mr-2">{{ item.quantity }}</h3>
+            <div class="media-body">
+              <h5>{{ item.context }}</h5>
+              <span>{{ item.time }}</span>
+            </div>
+          </div>
+        </li>
+      </ng-container>
+    </ul>
+  </div>
+  <div class="card-footer text-muted">
+    " Matches Histort in 2004 "
+    <a href="#" class="float-right">See More</a>
+  </div>
+</div>

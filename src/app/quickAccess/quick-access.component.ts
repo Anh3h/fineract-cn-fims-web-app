@@ -17,55 +17,106 @@
  * under the License.
  */
 import {Component} from '@angular/core';
+import { CardDetail } from '../common/account-card/account-card.component';
 
 @Component({
   templateUrl: './quick-access.component.html',
-  styles: [`
-    mat-card-title.mat-card-title, p {
-      margin-bottom: 0px
-    }
-    .details {
-      padding: 6px;
-    }
-    .details strong {
-      font-size: 16px
-    }
-  `]
+  styleUrls: ['./quick-access.component.scss']
 })
 export class QuickAccessComponent {
 
+  public firstCard: CardDetail = {
+    header: "Incoming wires",
+    subHeaders: [
+      {
+        quantity: 3,
+        context: "Matches",
+        time: "Today",
+        color: "primary"
+      }
+    ],
+    listBody: [
+      {
+        quantity: 4,
+        context: "Matches",
+        time: "This Week"
+      },
+      {
+        quantity: 14,
+        context: "Matches",
+        time: "This Month"
+      },
+      {
+        quantity: 35,
+        context: "Matches",
+        time: "This Year"
+      }
+    ]
+  };
+  public secondCard: CardDetail = {
+    header: "Deposits",
+    description: "Deposits over $4000",
+    subHeaders: [
+      {
+        quantity: 5,
+        context: "Matches",
+        time: "Today",
+        color: "primary"
+      },
+      {
+        quantity: 1,
+        context: "Alert",
+        time: "Today",
+        color: "danger"
+      },
+    ],
+    listBody: [
+      {
+        quantity: 7,
+        context: "Matches",
+        time: "This Week"
+      },
+      {
+        quantity: 12,
+        context: "Matches",
+        time: "This Month"
+      },
+      {
+        quantity: 23,
+        context: "Matches",
+        time: "This Year"
+      }
+    ]
+  };
+  public thirdCard: CardDetail = {
+    header: "Accounts",
+    description: "New Accounts Created",
+    subHeaders: [
+      {
+        quantity: 12,
+        context: "New Accounts",
+        time: "Today",
+        color: "success"
+      }
+    ],
+    listBody: [
+      {
+        quantity: 30,
+        context: "Matches",
+        time: "This Week"
+      },
+      {
+        quantity: 86,
+        context: "Matches",
+        time: "This Month"
+      },
+      {
+        quantity: 114,
+        context: "Matches",
+        time: "This Year"
+      }
+    ]
+  };
+
   constructor() {}
-
-  public chartOptions = {
-    scaleShowVerticalLines: true,
-    responsive: true
-  };
-  public chartLegend = false;
-  public chartOne = {
-    color: [{
-      backgroundColor: ['rgba(255, 255, 255, 0)'],
-      borderColor: ['rgba(54, 162, 235, 1)'],
-      pointBackgroundColor: 'rgba(54, 162, 235, 1)',
-      pointBorderColor: 'rgba(54, 162, 235, 1)',
-    }],
-    type: 'line',
-    labels: ['M', 'T', 'W', 'Th', 'F', 'Sa', 'Su'],
-    datasets: [
-        {data: [65, 59, 80, 81, 56, 55, 40]}
-      ]
-  };
-  public chartTwo = {
-    color: [{
-      backgroundColor: [
-        '#20c997', '#20c997', '#20c997', '#20c997', '#20c997', '#20c997',
-      ],
-      borderColor: ['#20c997', '#20c997', '#20c997', '#20c997', '#20c997', '#20c997']
-    }],
-    type: 'bar',
-    labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-    datasets: [
-        {data: [12, 19, 3, 5, 2, 3]}
-      ]
-  };
-
 }
