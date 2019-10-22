@@ -1,12 +1,7 @@
 .container {  
     color: #646c9a;
     
-    .col-md-4 {
-        padding-right: 3px;
-        padding-left: 3px;
-    }
-    
-    .col-md-12 {
+    .col-md-4, .col-md-5, .col-md-7, .col-md-12 {
         padding-right: 3px;
         padding-left: 3px;
     }
