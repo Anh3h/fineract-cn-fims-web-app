@@ -20,19 +20,10 @@ import { Component, ViewChild, ElementRef } from '@angular/core';
 import { CardDetail } from '../common/account-card/account-card.component';
 import { Chart, ChartConfiguration } from 'chart.js';
 import { type } from '../store/util';
-
-export interface ChartOptions{
-	ShowContent: boolean;
-	dataset:any[];
-	type:string;
-	fill:boolean;
-	labels:string[];
-	yAxes_min:number;
-	yAxes_max:number;
-	yAxes_stepSize:number;
-	xAxes_position:string;
-	yAxes_position:string;
-}
+import { ChartOptions } from '../common/mv-graph/mv-graph.directive';
+import { HBarOptions } from 'app/common/mv-horizontal-bar/mv-horizontal-bar.directive';
+import { NBVerticalBarOptions } from '../common/mv-no-border-veritical-bar/mv-no-border-vertical-bar.directive';
+import { BVerticalBarOptions } from '../common/mv-border-vertical-bar/mv-border-vertical-bar.directive';
 
 @Component({
   templateUrl: './quick-access.component.html',
@@ -42,94 +33,34 @@ export class QuickAccessComponent {
 
   public firstCard: CardDetail = {
     header: "Incoming wires",
-    subHeaders: [
-      {
-        quantity: 3,
-        context: "Matches",
-        time: "Today",
-        color: "primary"
-      }
-    ],
+    subHeaders: [{ quantity: 3, context: "Matches", time: "Today", color: "primary" }],
     listBody: [
-      {
-        quantity: 4,
-        context: "Matches",
-        time: "This Week"
-      },
-      {
-        quantity: 14,
-        context: "Matches",
-        time: "This Month"
-      },
-      {
-        quantity: 35,
-        context: "Matches",
-        time: "This Year"
-      }
+      { quantity: 4, context: "Matches", time: "This Week" },
+      { quantity: 14, context: "Matches", time: "This Month" },
+      { quantity: 35, context: "Matches", time: "This Year" }
     ]
   };
   public secondCard: CardDetail = {
     header: "Deposits",
     description: "Deposits over $4000",
     subHeaders: [
-      {
-        quantity: 5,
-        context: "Matches",
-        time: "Today",
-        color: "primary"
-      },
-      {
-        quantity: 1,
-        context: "Alert",
-        time: "Today",
-        color: "danger"
-      },
+      { quantity: 5, context: "Matches", time: "Today", color: "primary" },
+      { quantity: 1, context: "Alert", time: "Today", color: "danger" },
     ],
     listBody: [
-      {
-        quantity: 7,
-        context: "Matches",
-        time: "This Week"
-      },
-      {
-        quantity: 12,
-        context: "Matches",
-        time: "This Month"
-      },
-      {
-        quantity: 23,
-        context: "Matches",
-        time: "This Year"
-      }
+      { quantity: 7, context: "Matches", time: "This Week" },
+      { quantity: 12, context: "Matches", time: "This Month" },
+      { quantity: 23, context: "Matches", time: "This Year" }
     ]
   };
   public thirdCard: CardDetail = {
     header: "Accounts",
     description: "New Accounts Created",
-    subHeaders: [
-      {
-        quantity: 12,
-        context: "New Accounts",
-        time: "Today",
-        color: "success"
-      }
-    ],
+    subHeaders: [{ quantity: 12, context: "New Accounts", time: "Today", color: "success" }],
     listBody: [
-      {
-        quantity: 30,
-        context: "Matches",
-        time: "This Week"
-      },
-      {
-        quantity: 86,
-        context: "Matches",
-        time: "This Month"
-      },
-      {
-        quantity: 114,
-        context: "Matches",
-        time: "This Year"
-      }
+      { quantity: 30, context: "Matches", time: "This Week" },
+      { quantity: 86, context: "Matches", time: "This Month" },
+      { quantity: 114, context: "Matches", time: "This Year" }
     ]
   };
 
@@ -146,7 +77,59 @@ export class QuickAccessComponent {
     yAxes_position: "left"
   };
 
-  @ViewChild('chart') chart: ElementRef;
+  public firstHBarOptions: HBarOptions = {
+    type:'horizontalBar',
+			labels: ['Used Channel 1', 'Used Channels 2', 'Used Channels 3'],
+			dataset:[{ backgroundColor: "#5867dd", data: [ 50, 45, 0 ] }],
+			xAxes_Display:true,
+			yAxes_Display:true
+  }
+  public secondHBarOptions: HBarOptions = {
+    type:'horizontalBar',
+    labels: ['Used Channel 1', 'Used Channels 2', 'Used Channels 3'],
+    dataset:[{ backgroundColor: "#5867dd", data: [ 15, 80, 10 ] }],
+    xAxes_Display:true,
+    yAxes_Display:false
+  }
+  public nbVBarOptions: NBVerticalBarOptions = {
+    type: 'bar',
+    xAxes_Display: true,
+    yAxes_Display: true,
+    labels: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23"],
+    xAxesTicksCallbackValue: "",
+    yAxesTicksCallbackValue: "K",
+    xAxesPosition: 'top',
+    yAxesPosition: 'left',
+    dataset: [{
+      backgroundColor: "#5867dd",
+      data: [ 11, 15, 40, 30, 10, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 ]
+    }]
+  }
+  public firstBVBarOptions: BVerticalBarOptions = {
+    type:'bar',
+    labels:["AIRITIME","AIRITIME","AIRITIME", "BILL PAYMENT", "TRANSFERS"],
+    dataset: [{
+      backgroundColor: "#5867dd",
+      data: [ 62.735, 65.786, 293.260, 70.055, 103.432 ],
+    }]
+  }
+  public secondBVBarOptions: BVerticalBarOptions = {
+    type:'bar',
+    labels:["AIRITIME","AIRITIME","AIRITIME", "BILL PAYMENT", "TRANSFERS"],
+    dataset: [{
+      backgroundColor: "#5867dd",
+      data: [ 0.030458563, 0.030525392, 0.148931527, 0.070471148, 2.324310685 ],
+    }]
+  }
+  public vBarOptions: BVerticalBarOptions = {
+    type:'bar',
+    labels:["Week6","Week7","Week8", "Week9", "Week10", "Week11", "Week12", "Week13"],
+    dataset: [{
+      backgroundColor: "#5867dd",
+      data: [ 100, 100, 100, 100, 100, 100, 100, 100 ],
+    }]
+  }
+
   @ViewChild('pieChart') pieChart: ElementRef;
 
   public config: ChartConfiguration;
@@ -181,129 +164,10 @@ export class QuickAccessComponent {
         }
 			}
     }
-    
-    this.config = {
-			type: this.options.type,
-			data: {
-				labels: ['Feb 3', 'Feb 8', 'Feb 13', 'Feb 18', 'Feb 23', 'Feb 28', 'Mar 5', 'Mar 10', 'Mar 15', 'Mar 20', 'Mar 25', 'Mar 30', 'Apr 4'],
-				datasets: [
-          {
-            fill: false,
-            borderColor:'red',
-            backgroundColor: Chart.helpers.color("#716aca").alpha(0.6).rgbString(),
-            pointHoverRadius: 4,
-            pointHoverBorderWidth: 12,
-            pointBackgroundColor: Chart.helpers.color('#000000').alpha(0).rgbString(),
-            pointBorderColor: Chart.helpers.color('#000000').alpha(0).rgbString(),
-            pointHoverBorderColor: Chart.helpers.color('#000000').alpha(0.1).rgbString(),
-            pointHoverBackgroundColor: "#716aca",
-            data: [0, 1, 2, 3, 3,2,1,2,2,1,3,0,2]
-          },
-          {
-						fill: false,
-						borderColor:'green',
-						backgroundColor: Chart.helpers.color("#716aca").alpha(0.2).rgbString(),
-						pointHoverRadius: 4,
-						pointHoverBorderWidth: 12,
-						pointBackgroundColor: Chart.helpers.color('#000000').alpha(0).rgbString(),
-						pointBorderColor: Chart.helpers.color('#000000').alpha(0).rgbString(),
-						pointHoverBackgroundColor: "#716aca",
-						pointHoverBorderColor: Chart.helpers.color('#000000').alpha(0.1).rgbString(),
-						data: [2,1,2,3, 2,1,2,3, 2,1,2,3, 0]
-					}
-        ]
-			},
-			options: {
-				responsive: true,
-				maintainAspectRatio: true,
-				legend: false,
-				scales: {
-					xAxes: [{
-						position:this.options.xAxes_position,
-						categoryPercentage: 0.35,
-						barPercentage: 0.70,
-						display: true,
-						scaleLabel: {
-							display: false,
-							labelString: 'Month'
-						},
-						gridLines: false,
-						ticks: {
-							display: true,
-							beginAtZero: true,
-							fontColor: "#646c9a",
-							fontSize: 13,
-							padding: 10
-						}
-					}],
-					yAxes: [{
-						position:this.options.yAxes_position,
-						categoryPercentage: 0.35,
-						barPercentage: 0.70,
-						display: true,
-						scaleLabel: {
-							display: false,
-							labelString: 'Value'
-						},
-						gridLines: {
-							color: "#afb4d4",
-							drawBorder: false,
-							offsetGridLines: false,
-							drawTicks: false,
-							borderDash: [3, 4],
-							zeroLineWidth: 1,
-							zeroLineColor: "#afb4d4",
-							zeroLineBorderDash: [3, 4]
-						},
-						ticks: {
-							callback: function(value, index, values) {
-								return value + "M";
-							},
-							max: this.options.yAxes_max,
-							stepSize: this.options.yAxes_stepSize,
-							display: true,
-							min: this.options.yAxes_min,
-							fontColor: "#646c9a",
-							fontSize: 13,
-							padding: 10
-						}
-					}]
-				},
-				title: {
-					display: false
-				},
-				hover: {
-					mode: 'index'
-				},
-				tooltips: {
-					enabled: true,
-					intersect: false,
-					mode: 'nearest',
-					bodySpacing: 5,
-					yPadding: 10,
-					xPadding: 10,
-					caretPadding: 0,
-					displayColors: false,
-					backgroundColor: "#716aca",
-					titleFontColor: '#ffffff',
-					cornerRadius: 4,
-					footerSpacing: 0,
-					titleSpacing: 0
-				},
-				layout: {
-					padding: {
-						left: 0,
-						right: 0,
-						top: 5,
-						bottom: 5
-					}
-				}
-			}
-		};
+ 
   }
 
   ngAfterViewInit() {
-    this.chart = new Chart(this.chart.nativeElement, this.config);
     this.pieChart = new Chart(this.pieChart.nativeElement, this.pieChartConfig);
   }
 }

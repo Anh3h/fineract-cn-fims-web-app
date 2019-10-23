@@ -40,6 +40,12 @@ import {FormFinalActionComponent} from './forms/form-final-action.component';
 import {AddressFormComponent} from './address/address.component';
 import {PortraitComponent} from './portrait/portrait.component';
 import {AccountCardComponent} from './account-card/account-card.component';
+import {MvGraphDirective} from '././mv-graph/mv-graph.directive';
+import {MvHorizontalBarDirective} from './mv-horizontal-bar/mv-horizontal-bar.directive';
+import {MvNBVerticalBarDirective} from './mv-no-border-veritical-bar/mv-no-border-vertical-bar.directive';
+import {MvBVerticBarDirective} from './mv-border-vertical-bar/mv-border-vertical-bar.directive';
+import {MvBVerticBarSMDirective} from './mv-border-vertical-sm-bar/mv-border-vertical-bar-sm.directive';
+import {MvVerticBarDirective} from './mv-vertical-bar/mv-vertical-bar.directive';
 import {CommonModule} from '@angular/common';
 import {
   MatAutocompleteModule,
@@ -66,7 +72,7 @@ import {DateInputComponent} from './date-input/date-input.component';
 import {TextInputComponent} from './text-input/text-input.component';
 import {DisplayFimsNumber} from './number/fims-number.pipe';
 import {DisplayFimsFinancialNumber} from './number/fims-financial-number.pipe';
-import {NumberGroupInputComponent} from './number-group-input/number-group-input.component'
+import {NumberGroupInputComponent} from './number-group-input/number-group-input.component';
 
 @NgModule({
   imports: [
@@ -124,7 +130,13 @@ import {NumberGroupInputComponent} from './number-group-input/number-group-input
     DisplayFimsNumber,
     DisplayFimsFinancialNumber,
     NumberGroupInputComponent,
-    AccountCardComponent
+    AccountCardComponent,
+    MvGraphDirective,
+    MvHorizontalBarDirective,
+    MvNBVerticalBarDirective,
+    MvBVerticBarDirective,
+    MvBVerticBarSMDirective,
+    MvVerticBarDirective
   ],
   exports: [
     LayoutCardOverComponent,
@@ -157,7 +169,13 @@ import {NumberGroupInputComponent} from './number-group-input/number-group-input
     DisplayFimsNumber,
     DisplayFimsFinancialNumber,
     NumberGroupInputComponent,
-    AccountCardComponent
+    AccountCardComponent,
+    MvGraphDirective,
+    MvHorizontalBarDirective,
+    MvNBVerticalBarDirective,
+    MvBVerticBarDirective,
+    MvBVerticBarSMDirective,
+    MvVerticBarDirective
   ],
   entryComponents: [
     ImageComponent
