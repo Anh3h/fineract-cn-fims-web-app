@@ -68,10 +68,10 @@ export class MainComponent implements OnInit, OnDestroy, AfterViewInit {
     //TODO
     {
       title: 'CARD ACCOUNT',
-      description: 'Manage ledger accounts',
-      icon: 'receipt',
-      routerLink: '/accounting',
-      permission: { id: 'accounting_ledgers', accessLevel: 'READ' }
+      description: '',
+      icon: '',
+      routerLink: '/card',
+      // permission: {}
     },
     {
       title: 'TELLER MANAGEMENT',
@@ -97,10 +97,10 @@ export class MainComponent implements OnInit, OnDestroy, AfterViewInit {
     //TODO
     {
       title: 'FRAUD MONITORING',
-      description: 'Manage members',
-      icon: 'face',
-      routerLink: '/customers',
-      permission: { id: 'customer_customers', accessLevel: 'READ' }
+      description: '',
+      icon: '',
+      routerLink: '/fraud',
+      // permission: { id: 'customer_customers', accessLevel: 'READ' }
     },
     {
       title: 'ACCOUNTING',
@@ -112,10 +112,10 @@ export class MainComponent implements OnInit, OnDestroy, AfterViewInit {
     //TODO
     {
       title: 'NEWS',
-      description: 'Manage ledger accounts',
-      icon: 'receipt',
-      routerLink: '/accounting',
-      permission: { id: 'accounting_ledgers', accessLevel: 'READ' }
+      description: '',
+      icon: '',
+      routerLink: '/news',
+      // permission: { id: 'accounting_ledgers', accessLevel: 'READ' }
     },
     {
       title: 'REPORTS',
@@ -127,10 +127,10 @@ export class MainComponent implements OnInit, OnDestroy, AfterViewInit {
 
     {
       title: 'SETTINGS',
-      description: 'Manage roles and permissions',
-      icon: 'https',
-      routerLink: '/roles',
-      permission: { id: 'identity_roles', accessLevel: 'READ' }
+      description: 'Manage roles and permission',
+      icon: '',
+      routerLink: '/settings',
+      // permission: { id: 'identity_roles', accessLevel: 'READ' }
     },
     // {
     //   title: 'Employees',
@@ -174,7 +174,7 @@ export class MainComponent implements OnInit, OnDestroy, AfterViewInit {
 
     this.tenant$ = this.store.select(fromRoot.getTenant);
     this.username$ = this.store.select(fromRoot.getUsername);
-    this.isOpened$ = this.media.registerQuery('gt-md');
+    // this.isOpened$ = this.media.registerQuery('gt-md');
 
     this.countryService.init();
   }

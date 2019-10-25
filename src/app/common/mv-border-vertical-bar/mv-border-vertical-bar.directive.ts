@@ -1,7 +1,7 @@
 import { AfterViewInit, Directive, ElementRef, Input } from '@angular/core';
 import { Chart, ChartConfiguration } from 'chart.js';
 
-export interface BVerticalBarOptions {
+export class BVerticalBarOptions {
 	labels: string[];
     dataset: any[];
     type: string;
